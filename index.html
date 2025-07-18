@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Mindset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header img {
+            height: 60px;
+            margin-right: 20px;
+        }
+        nav {
+            background-color: #3399FF;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        h2 {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="UploadedImage0.jpg" alt="Logo Cyber Mindset">
+    <div>
+        <h1>Cyber Mindset</h1>
+        <p>Votre partenaire en cybersécurité et innovation numérique</p>
+    </div>
+</header>
+
+<nav>
+    <a href="#about">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>À propos</h2>
+    <p>Cyber Mindset est une entreprise spécialisée dans la cybersécurité, la sensibilisation numérique et l'accompagnement des organisations dans leur transformation digitale sécurisée. Nous croyons que la sécurité commence par un bon état d'esprit.</p>
+</section>
+
+<section id="services">
+    <h2>Nos Services</h2>
+    <ul>
+        <li>Audit de sécurité informatique</li>
+        <li>Formations en cybersécurité et sensibilisation</li>
+        <li>Conseil en stratégie numérique sécurisée</li>
+        <li>Développement de solutions sur mesure</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Pour toute demande d'information ou de collaboration, veuillez nous contacter à : <strong>cybermindset404@gmail.com</strong></p>
+    <form action="send_email.php" method="POST">
+        <label for="nom">Nom :</label><br>
+        <input type="text" id="nom" name="nom" required><br><br>
+        <label for="email">Email :</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="message">Message :</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+        <button type="submit">Envoyer</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 Cyber Mindset. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>

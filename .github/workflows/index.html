@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Mindset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('cybersecurity_background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        header {
+            background-color: rgba(10, 61, 98, 0.9);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: rgba(60, 99, 130, 0.9);
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: rgba(10, 61, 98, 0.9);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        h2 {
+            color: #00d2ff;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        input[type="submit"] {
+            background-color: #00d2ff;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Cyber Mindset</h1>
+    <p>Votre partenaire en cybersécurité et innovation numérique</p>
+</header>
+
+<nav>
+    <a href="#about">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>À propos</h2>
+    <p>Cyber Mindset est une entreprise spécialisée dans la cybersécurité, la sensibilisation numérique et l'accompagnement des organisations dans leur transformation digitale sécurisée. Nous croyons que la sécurité commence par un bon état d'esprit.</p>
+</section>
+
+<section id="services">
+    <h2>Nos Services</h2>
+    <ul>
+        <li>Audit de sécurité informatique</li>
+        <li>Formations en cybersécurité et sensibilisation</li>
+        <li>Conseil en stratégie numérique sécurisée</li>
+        <li>Développement de solutions sur mesure</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Pour toute demande d'information ou de collaboration, veuillez nous contacter à : <strong>cybermindset404@gmail.com</strong></p>
+    <form action="send_email.php" method="POST">
+        <input type="text" name="nom" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+        <input type="submit" value="Envoyer">
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Cyber Mindset. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>

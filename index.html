@@ -1,203 +1,100 @@
-<!doctype html>
-<html lang="fr" data-theme="light">
+
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Unified Cyber Audit Pack — ISO 27001:2022 • NIST CSF 2.0 • NIS2/ENISA</title>
-  <meta name="description" content="Pack d’audit cybersécurité unifié : ISO 27001:2022, NIST CSF 2.0 et NIS2/ENISA. Téléchargements, références officielles, guide d’utilisation et KPI.">
-  <link rel="icon" href="logo.png" type="image/png" />
-  <style>
-    :root{
-      --bg:#0b1220; --panel:#0f172a; --muted:#94a3b8; --text:#e2e8f0; --brand:#5b8def; --accent:#22c55e; --warn:#f59e0b; --danger:#ef4444; --line:#1f2937; --card:#0f172a;
-      --shadow:0 10px 28px rgba(2,6,23,.24);
-    }
-    [data-theme="light"]{
-      --bg:#ffffff; --panel:#ffffff; --card:#ffffff; --muted:#475569; --text:#0f172a; --brand:#3b82f6; --accent:#059669; --warn:#d97706; --danger:#b91c1c; --line:#e5e7eb; --shadow:0 8px 20px rgba(15,23,42,.08);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg)}
-    a{color:var(--brand);text-decoration:none}
-    .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-    /* HERO */
-    .hero{
-      position:relative;overflow:hidden;border-bottom:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(16,24,40,.25), rgba(16,24,40,.0));
-    }
-    .hero__banner{
-      width:100%;height:240px;background:url('banner.jpg') center/cover no-repeat;filter:saturate(.95) contrast(1.05);
-    }
-    .hero__bar{
-      display:flex;gap:18px;align-items:center;justify-content:space-between;padding:14px 0 18px;
-    }
-    .brand{display:flex;gap:14px;align-items:center}
-    .brand img{width:44px;height:44px;border-radius:10px;box-shadow:var(--shadow)}
-    .brand__titles h1{margin:0;font-size:22px}
-    .brand__titles p{margin:2px 0 0;color:var(--muted);font-size:14px}
-    .actions{display:flex;gap:10px;align-items:center}
-    .btn{
-      border:1px solid var(--line);background:var(--panel);color:var(--text);
-      padding:10px 14px;border-radius:10px;cursor:pointer;box-shadow:var(--shadow);
-      display:inline-flex;gap:8px;align-items:center;font-weight:600
-    }
-    .btn--brand{background:var(--brand);border-color:transparent;color:#fff}
-    .btn--ghost{background:transparent}
-    .toggle{display:inline-flex;gap:8px;align-items:center}
-    .toggle input{appearance:none;width:44px;height:24px;background:var(--line);border-radius:999px;position:relative;outline:none;cursor:pointer}
-    .toggle input:before{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:.25s}
-    [data-theme="dark"] .toggle input{background:#1f2937}
-    .toggle input:checked:before{left:23px}
-    /* TABS */
-    .tabs{margin:18px 0 30px;border-bottom:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap}
-    .tab{
-      padding:10px 14px;border-radius:10px 10px 0 0;border:1px solid var(--line);border-bottom:0;background:var(--panel);cursor:pointer;
-      color:var(--muted);font-weight:600
-    }
-    .tab.active{color:var(--text);background:linear-gradient(180deg,rgba(91,141,239,.15),transparent)}
-    .panel{display:none;padding:22px 0}
-    .panel.active{display:block}
-    /* CARDS */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .card{
-      border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:var(--shadow);padding:16px;position:relative
-    }
-    .card h3{margin:0 0 8px}
-    .meta{color:var(--muted);font-size:13px}
-    .chip{display:inline-block;border-radius:999px;font-size:12px;padding:4px 10px;background:rgba(91,141,239,.12);color:var(--brand);margin-right:6px}
-    .cta{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-    .cta a{border:1px solid var(--line);padding:10px 12px;border-radius:10px;background:var(--panel);font-weight:600}
-    .cta a.primary{background:var(--brand);color:#fff;border-color:transparent}
-    .tip{position:absolute;top:10px;right:10px;font-size:12px;color:var(--muted)}
-    /* REFERENCES */
-    .refbar{display:flex;gap:10px;align-items:center;margin-bottom:12px}
-    .refbar input{flex:1;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--panel);color:var(--text)}
-    .ref-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
-    .ref{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--card)}
-    .ref small{color:var(--muted)}
-    /* GUIDE */
-    ol.guide{padding-left:18px}
-    ol.guide li{margin:10px 0}
-    .kbd{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--line);padding:2px 6px;border-radius:6px}
-    /* KPI */
-    .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-    .kpi{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--card)}
-    .kpi h4{margin:0 0 6px}
-    .kpi .val{font-size:24px;font-weight:800}
-    .kpi.ok .val{color:var(--accent)} .kpi.warn .val{color:var(--warn)} .kpi.bad .val{color:var(--danger)}
-    /* FOOTER */
-    footer{border-top:1px solid var(--line);margin-top:24px}
-    .foot{padding:14px 0;color:var(--muted);font-size:14px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    /* TOAST */
-    .toast{position:fixed;right:16px;bottom:16px;background:var(--panel);border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:10px;box-shadow:var(--shadow);opacity:0;transform:translateY(12px);transition:.25s}
-    .toast.show{opacity:1;transform:translateY(0)}
-  </style>
+<meta charset="utf-8"/>
+<title>Cyber Mindset</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('Designer.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        header {
+            background-color: rgba(10, 61, 98, 0.9);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #0000CD;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            background-color: #778899;
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+        footer {
+            background-color: #0000CD;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        h2 {
+            color: #0000CD;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        input[type="submit"], button {
+            background-color: #0000CD;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="hero__banner" aria-hidden="true"></div>
-    <div class="wrap hero__bar">
-      <div class="brand">
-        <img src="logo.png" alt="Unified Cyber Audit Pack logo" />
-        <div class="brand__titles">
-          <h1>Unified Cyber Audit Pack</h1>
-          <p>ISO 27001:2022 • NIST CSF 2.0 • NIS2 / ENISA – Livrables & tableau de bord</p>
-        </div>
-      </div>
-      <div class="actions">
-        <button id="dlAll" class="btn btn--brand" title="Télécharger tous les livrables">⬇️ Télécharger le pack</button>
-        <label class="toggle" title="Basculer clair/sombre">
-          <span>🌙</span>
-          <input id="themeSwitch" type="checkbox" />
-          <span>☀️</span>
-        </label>
-      </div>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <!-- TABS -->
-    <nav class="tabs" role="tablist" aria-label="Sections">
-      <button class="tab active" data-tab="downloads" role="tab" aria-selected="true">Téléchargements</button>
-      <button class="tab" data-tab="refs" role="tab">Références</button>
-      <button class="tab" data-tab="guide" role="tab">Guide</button>
-      <button class="tab" data-tab="kpi" role="tab">KPI</button>
-    </nav>
-
-    <!-- DOWNLOADS -->
-    <section id="panel-downloads" class="panel active" role="tabpanel" aria-labelledby="downloads">
-      <div class="grid">
-        <article class="card">
-          <span class="tip">Excel</span>
-          <h3>Questionnaire & Mapping</h3>
-          <div class="meta">ISO 27001:2022 ↔ NIST CSF 2.0 ↔ NIS2/ENISA</div>
-          <div style="margin-top:6px">
-            <span class="chip">Filtres & Pivots</span>
-            <span class="chip">Catalogue + Évaluation</span>
-          </div>
-          <div class="cta">
-            <a class="primary" href="questionnaire_mapping.xlsx" data-dl>questionnaire_mapping.xlsx</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="tip">Word + Excel</span>
-          <h3>SoA & Registre des risques</h3>
-          <div class="meta">Statement of Applicability (Annexe A) + Risk register</div>
-          <div class="cta">
-            <a class="primary" href="SoA_pre_rempli.docx" data-dl>SoA_pre_rempli.docx</a>
-            <a href="registre_risques.xlsx" data-dl>registre_risques.xlsx</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="tip">PPTX + PDF</span>
-          <h3>Rapport d’audit</h3>
-          <div class="meta">Radar, heatmap, RACI, roadmap 12–18 mois</div>
-          <div class="cta">
-            <a class="primary" href="rapport_audit.pptx" data-dl>rapport_audit.pptx</a>
-            <a href="rapport_audit.pdf" data-dl>rapport_audit.pdf</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="tip">Excel</span>
-          <h3>Dashboard KPI</h3>
-          <div class="meta">%MFA, patch P1, PRA, MTTD/MTTR, logs, fournisseurs</div>
-          <div class="cta">
-            <a class="primary" href="kpi_dashboard.xlsx" data-dl>kpi_dashboard.xlsx</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- REFERENCES -->
-    <section id="panel-refs" class="panel" role="tabpanel" aria-labelledby="refs">
-      <div class="refbar">
-        <input id="refSearch" type="search" placeholder="Rechercher une référence (ex. NIST, ENISA, OLIR, ISO…)" />
-        <button class="btn btn--ghost" id="clearSearch">Effacer</button>
-      </div>
-      <div class="ref-list" id="refList">
-        <div class="ref" data-tags="nist csf 2.0 officiel">
-          <strong><a target="_blank" href="https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf">NIST Cybersecurity Framework 2.0 — Document officiel</a></strong><br/>
-          <small>Publication : 26 fév. 2024 (NIST)</small>
-        </div>
-        <div class="ref" data-tags="nist olir mapping informative references iso">
-          <strong><a target="_blank" href="https://csrc.nist.gov/projects/olir/informative-reference-catalog">NIST OLIR — Informative References & mappings</a></strong><br/>
-          <small>Catalogue de mappings vers d’autres normes</small>
-        </div>
-        <div class="ref" data-tags="enisa nis2 guidance mesures preuves">
-          <strong><a target="_blank" href="https://www.enisa.europa.eu/publications/nis2-technical-implementation-guidance">ENISA — NIS2 Technical Implementation Guidance</a></strong><br/>
-          <small>Mesures techniques, exemples de preuves & mappings</small>
-        </div>
-        <div class="ref" data-tags="iso 27001 2022 annexe a explications">
-          <strong><a target="_blank" href="https://www.isms.online/iso-27001/annex-a-2022/">ISO 27001:2022 — Annexe A (explications)</a></strong><br/>
-          <small>Guide pédagogique sur l’Annexe A 2022</small>
-        </div>
-      </div>
-    </section>
-
-    <!-- GUIDE -->
-    <section id="panel-guide" class="panel" role="tabpanel" aria-labelledby="guide">
-      <ol class="guide">
-        <li><strong>Questionnaire & Mapping</strong> : ouvrez <span class="kbd">questionnaire_mapping.xlsx</span> → onglet <span class="kbd">Catalogue</span>, complétez <span class="kbd">Évaluation</span>, puis générez vos TCD/graphes depuis <span class="kbd">Pivot_source</span>.</li>
-        <li><strong>SoA</strong> : renseignez l’applicabilité des contrôles de l’Annexe A et le statut d’implémentation ; rattachez les <em>preuves</em>.</li>
-        <li><strong>Rapport</strong> : importez les scores (radar), positionnez vos écarts (heatmap), consolidez la <em>roadmap 12–18 mois</em> et la <em>matrice RACI</em>.</li>
+<header style="text-align: center; padding: 20px 0; background-color: #007BFF; color: white;"><img alt="Cyber Mindset Logo" src="cyber-mindset.png" style="max-height: 100px; display: block; margin: 0 auto;"/><h1>Cyber Mindset</h1><p>Votre partenaire en cybersécurité et conseil en informatique</p></header>
+<nav>
+<a href="#about">À propos</a>
+<a href="services.html">Services</a>
+<a href="CV.html">CV</a>
+</nav>
+<section id="about">
+<h2>À propos</h2>
+<p>Fondée en en Octobre 2023, Cyber Mindset est une entreprise spécialisée dans la cybersécurité, la sensibilisation numérique, la formation et l'accompagnement des organisations dans leur transformation digitale sécurisée. Nous croyons que la sécurité commence par un bon état d'esprit.</p>
+</section>
+<section id="welcome">
+<h2>Bienvenue chez Cyber Mindset</h2>
+<p>Dans un monde numérique en constante évolution, la cybersécurité n’est plus une option, c’est une nécessité.<br>
+Chez <strong>Cyber Mindset</strong>, nous vous accompagnons pour bâtir un environnement digital <strong>sûr, résilient et conforme</strong> aux standards les plus exigeants.<br>
+Notre objectif : <strong>protéger vos données, sécuriser vos infrastructures et renforcer la vigilance de vos équipes</strong>, afin que votre transformation digitale soit synonyme de confiance et de performance.</p>
+</section>
+        
+<section id="contact">
+<h2>Contact</h2>
+<p>Pour toute demande d'information ou de collaboration, veuillez nous contacter via : <strong>infocybermindset.fr</strong></p>
+<form action="https://formspree.io/f/mnnyebao" method="POST">
+<input name="nom" placeholder="Votre nom" required type="text"/>
+<input name="email" placeholder="Votre email" required type="email"/>
+<textarea name="message" placeholder="Votre message" required rows="5"></textarea>
+<button type="submit">Envoyer</button>
+</form>
+</section>
+<footer>
+<p>© 2025 Cyber Mindset. Tous droits réservés.</p>
+</footer>
+</body>
+</html>
